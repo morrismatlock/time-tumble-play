@@ -11,3 +11,9 @@ Keys (i = era 0-7: jungle, desert, medieval, 18th century, industrial, present, 
 - `near{i}`      closer skyline strip, transparent, tiles horizontally (shown 360 px tall)
 - `mat{i}`       256 px seamless material; fills the code-drawn ground, blocks and hills (`src/envArt.ts`)
 - `prop{i}_tall`, `prop{i}_block`, `prop{i}_wide`  big obstacles, transparent, stretched to the obstacle's box
+- `decor{i}_{k}` (k 0-3) decorations behind the track, transparent, sized to the old drawn boxes (v0.13)
+- `brk{i}`       breakable object, transparent, drawn per crate cell under the code's gold rim/cracks (v0.13)
+- `pad{i}`       launch-pad mushroom, transparent (v0.13)
+- `ledge{i}`     ledge slab strip, transparent, 52 px tall, 3-sliced to any width (v0.13)
+- `cave{i}`      256 px seamless cave wall (v0.13)
+- `frame_a`      menu panel frame for the nine-slice panel (spares `frame_b` vines, `frame_c` brass stay in art-src)
