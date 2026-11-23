@@ -5,23 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
     <meta name="theme-color" content="#0b0820" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Time Tumble" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="manifest" href="manifest.webmanifest" />
     <title>Time Tumble</title>
     <link rel="icon" type="image/svg+xml" href="icon.svg" />
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
     <style>
-      html, body { margin: 0; padding: 0; height: 100%; background: #0b0820; overflow: hidden; touch-action: none; }
-      #game { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; }
+      html, body { margin: 0; padding: 0; height: 100%; background: #0b0820; overflow: hidden; touch-action: none; overscroll-behavior: none; position: fixed; width: 100%;
+        -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent; }
+      #game { position: fixed; inset: 0; inset: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); display: flex; align-items: center; justify-content: center; }
       #game canvas { display: block; }
-      #rotate { display: none; position: fixed; inset: 0; z-index: 20; background: #0b0820; color: #fff; font: bold 22px "Trebuchet MS", Arial, sans-serif; text-align: center; align-items: center; justify-content: center; flex-direction: column; gap: 16px; }
+      #rotate { display: none; position: fixed; inset: 0; z-index: 20; background: #0b0820; color: #fff; font: bold 26px "Trebuchet MS", Arial, sans-serif; text-align: center; align-items: center; justify-content: center; flex-direction: column; gap: 16px; }
       #rotate .phone { width: 46px; height: 78px; border: 4px solid #7ff9ff; border-radius: 10px; animation: turn 1.6s ease-in-out infinite; }
       @keyframes turn { 0%, 30% { transform: rotate(0deg); } 60%, 100% { transform: rotate(-90deg); } }
       @media (orientation: portrait) and (pointer: coarse) { #rotate { display: flex; } }
     </style>
-    <script type="module" crossorigin src="./assets/index-BD2bNduw.js"></script>
+    <script type="module" crossorigin src="./assets/index-qd2HFlcI.js"></script>
   </head>
   <body>
     <div id="game"></div>
-    <div id="rotate"><div class="phone"></div>Turn your phone sideways to play</div>
+    <div id="rotate"><div class="phone"></div><span>Turn your phone sideways to play</span><span style="font-size:16px;font-weight:normal;opacity:.8">Time Tumble is a landscape game</span></div>
   </body>
 </html>
