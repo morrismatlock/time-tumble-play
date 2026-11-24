@@ -17,3 +17,6 @@ Keys (i = era 0-7: jungle, desert, medieval, 18th century, industrial, present, 
 - `ledge{i}`     ledge slab strip, transparent, 52 px tall, 3-sliced to any width (v0.13)
 - `cave{i}`      256 px seamless cave wall (v0.13)
 - `frame_a`      menu panel frame for the nine-slice panel (spares `frame_b` vines, `frame_c` brass stay in art-src)
+- `lip{i}`       walkable ground edge strip (v0.15), 72 px tall at 2x, walking line 16 px from the top, tiles
+                 horizontally; drawn at half size by the ground edge, block tops and hill curves (`src/envArt.ts`)
+- `cloud`        cloud-garden ledge slab (v0.15), 3-sliced, drawn CLOUD_LIFT px higher (puffs above the flat top)
