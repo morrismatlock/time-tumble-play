@@ -23,8 +23,15 @@
       #rotate .phone { width: 46px; height: 78px; border: 4px solid #7ff9ff; border-radius: 10px; animation: turn 1.6s ease-in-out infinite; }
       @keyframes turn { 0%, 30% { transform: rotate(0deg); } 60%, 100% { transform: rotate(-90deg); } }
       @media (orientation: portrait) and (pointer: coarse) { #rotate { display: flex; } }
+      #iosnudge { position: fixed; inset: 0; z-index: 19; background: rgba(5,1,13,.88); display: flex; align-items: center; justify-content: center; padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); font-family: "Trebuchet MS", Arial, sans-serif; color: #fff; }
+      #iosnudge .card { background: #1c1238; border: 3px solid #e8b44a; border-radius: 18px; padding: 14px 22px; max-width: 560px; width: calc(100% - 40px); max-height: calc(100% - 20px); overflow: auto; box-sizing: border-box; text-align: center; }
+      #iosnudge .t { font: bold 26px "Trebuchet MS", Arial, sans-serif; color: #ffe066; margin-bottom: 4px; }
+      #iosnudge .s { font-size: 14px; color: #c8f8ff; margin: 4px 0; }
+      #iosnudge ol { text-align: left; font-size: 17px; line-height: 1.6; margin: 6px 0; padding-left: 26px; }
+      #iosnudge .h { font-size: 13px; opacity: .8; }
+      #iosnudge button { margin-top: 8px; font: bold 16px "Trebuchet MS", Arial, sans-serif; color: #1c1238; background: #ffe066; border: 0; border-radius: 999px; padding: 10px 22px; }
     </style>
-    <script type="module" crossorigin src="./assets/index-7trRfUhp.js"></script>
+    <script type="module" crossorigin src="./assets/index-9gkobcWZ.js"></script>
   </head>
   <body>
     <div id="game"></div>
