@@ -184,5 +184,9 @@
  "lip5": "lip5.webp",
  "lip6": "lip6.webp",
  "lip7": "lip7.webp",
- "cloud": "cloud.webp"
+ "cloud": "cloud.webp",
+ "cine_thread": "cine_thread.webp",
+ "cine_dawn": "cine_dawn.webp",
+ "cine_snap": "cine_snap.webp",
+ "gemShard": "gemShard.webp"
 }
