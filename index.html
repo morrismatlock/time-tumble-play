@@ -30,11 +30,23 @@
       #iosnudge ol { text-align: left; font-size: 17px; line-height: 1.6; margin: 6px 0; padding-left: 26px; }
       #iosnudge .h { font-size: 13px; opacity: .8; }
       #iosnudge button { margin-top: 8px; font: bold 16px "Trebuchet MS", Arial, sans-serif; color: #1c1238; background: #ffe066; border: 0; border-radius: 999px; padding: 10px 22px; }
+      #loading { position: fixed; inset: 0; z-index: 18; background: radial-gradient(ellipse at 50% 40%, #2a1650 0%, #0b0820 70%); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; font-family: "Trebuchet MS", Arial, sans-serif; color: #fff; transition: opacity .45s ease; }
+      #loading.gone { opacity: 0; pointer-events: none; }
+      #loading .ttl { font: bold 46px "Trebuchet MS", Arial, sans-serif; letter-spacing: 3px; color: #ffe066; text-shadow: 0 3px 0 #7a3d10, 0 0 24px rgba(255,200,80,.45); }
+      #loading .thread { position: relative; width: min(420px, 70vw); height: 34px; }
+      #loading .thread svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+      #loading .thread path { fill: none; stroke: #ffd24a; stroke-width: 3; stroke-linecap: round; filter: drop-shadow(0 0 6px #ffb020); stroke-dasharray: 600; stroke-dashoffset: 600; animation: draw 2.2s ease-in-out infinite; }
+      #loading .shard { position: absolute; top: 50%; left: 4%; width: 18px; height: 26px; margin: -13px 0 0 -9px; background: linear-gradient(160deg, #e9fdff, #7ff9ff 45%, #2a8fd6); clip-path: polygon(50% 0, 100% 38%, 50% 100%, 0 38%); filter: drop-shadow(0 0 8px #7ff9ff); transition: left .3s ease; }
+      #loading .bar { width: min(420px, 70vw); height: 8px; border-radius: 99px; background: rgba(255,255,255,.12); overflow: hidden; }
+      #loading .bar i { display: block; height: 100%; width: 4%; border-radius: 99px; background: linear-gradient(90deg, #ffb020, #ffe066); transition: width .3s ease; }
+      #loading .msg { font-size: 15px; color: #c8f8ff; opacity: .85; min-height: 18px; }
+      @keyframes draw { 0% { stroke-dashoffset: 600; } 60%, 100% { stroke-dashoffset: 0; } }
     </style>
-    <script type="module" crossorigin src="./assets/index-y1MR86KP.js"></script>
+    <script type="module" crossorigin src="./assets/index-Cfhr-Qyk.js"></script>
   </head>
   <body>
     <div id="game"></div>
+    <div id="loading"><div class="ttl">TIME TUMBLE</div><div class="thread"><svg viewBox="0 0 420 34" preserveAspectRatio="none"><path d="M0 17 C 70 2, 140 32, 210 17 S 350 2, 420 17"/></svg><div class="shard"></div></div><div class="bar"><i></i></div><div class="msg">Loading…</div></div>
     <div id="rotate"><div class="phone"></div><span>Turn your phone sideways to play</span><span style="font-size:16px;font-weight:normal;opacity:.8">Time Tumble is a landscape game</span></div>
   </body>
 </html>
