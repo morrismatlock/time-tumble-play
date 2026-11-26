@@ -34,12 +34,24 @@ jobs:
           VERIFIER_TOKEN: ${{ secrets.VERIFIER_TOKEN }}
       - name: Install the headless browser
         if: steps.check.outputs.pending == 'yes'
+        shell: bash
         run: |
-          npm install --no-save --no-package-lock playwright@1.52.0
+          # Errors are echoed as annotations, which can be read without signing in to GitHub.
+          if ! npm install --no-save --no-package-lock playwright@1.52.0 > npm.log 2>&1; then
+            echo "::error title=npm install failed::$(tail -c 900 npm.log | tr '\n\r' '  ')"; exit 1
+          fi
           # If Playwright's own Chromium can't be installed, verify.mjs falls back to the runner's Google Chrome.
-          npx playwright install --with-deps chromium || npx playwright install chromium || echo "Using the runner's Chrome instead"
+          if ! npx playwright install --with-deps chromium > pw.log 2>&1; then
+            echo "::warning title=Browser install::$(tail -c 900 pw.log | tr '\n\r' '  ')"
+            npx playwright install chromium > pw2.log 2>&1 || echo "::warning title=Using runner Chrome::$(tail -c 400 pw2.log | tr '\n\r' '  ')"
+          fi
       - name: Replay and give verdicts
         if: steps.check.outputs.pending == 'yes'
-        run: node verifier/verify.mjs
+        shell: bash
+        run: |
+          set -o pipefail
+          if ! node verifier/verify.mjs 2>&1 | tee verify.log; then
+            echo "::error title=Verifier failed::$(tail -c 900 verify.log | tr '\n\r' '  ')"; exit 1
+          fi
         env:
           VERIFIER_TOKEN: ${{ secrets.VERIFIER_TOKEN }}
