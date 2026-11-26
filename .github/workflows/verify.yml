@@ -18,7 +18,7 @@ permissions:
 
 jobs:
   verify:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04 # pinned: Playwright 1.52 can't install its browser's system parts on newer Ubuntu images
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
@@ -36,7 +36,8 @@ jobs:
         if: steps.check.outputs.pending == 'yes'
         run: |
           npm install --no-save --no-package-lock playwright@1.52.0
-          npx playwright install --with-deps chromium
+          # If Playwright's own Chromium can't be installed, verify.mjs falls back to the runner's Google Chrome.
+          npx playwright install --with-deps chromium || npx playwright install chromium || echo "Using the runner's Chrome instead"
       - name: Replay and give verdicts
         if: steps.check.outputs.pending == 'yes'
         run: node verifier/verify.mjs
