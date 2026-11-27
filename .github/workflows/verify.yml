@@ -1,5 +1,5 @@
 # Copied to .github/workflows/verify.yml in the public time-tumble-play repo by `npm run deploy`.
-# Every 10 minutes: are there ranked weekly runs waiting? If so, replay each one on the exact game
+# Started straight away by the database when a run arrives (v0.19.1), plus a timer as a backup: are there ranked weekly runs waiting? If so, replay each one on the exact game
 # version it was played on, and mark it verified (or rejected). Public repo = free Actions minutes.
 # Needs one repository secret: VERIFIER_TOKEN (see the steps in the Time Tumble docs).
 name: Verify weekly runs
@@ -32,6 +32,12 @@ jobs:
         run: node verifier/verify.mjs --check
         env:
           VERIFIER_TOKEN: ${{ secrets.VERIFIER_TOKEN }}
+      - name: Reuse the downloaded browser
+        if: steps.check.outputs.pending == 'yes'
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-1.52.0-ubuntu-24.04
       - name: Install the headless browser
         if: steps.check.outputs.pending == 'yes'
         shell: bash
